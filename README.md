@@ -1,4 +1,4 @@
-# 💰 AI Financial Advisor
+# AI Financial Advisor
 
 A AI financial advisor chatbot built with Next.js 15, Vercel AI SDK, and Google Gemini. Get real-time market data, cryptocurrency prices, forex rates, and personalized financial insights.
 
@@ -12,14 +12,14 @@ A AI financial advisor chatbot built with Next.js 15, Vercel AI SDK, and Google 
 
 ### Real-Time Financial Data
 
-| Feature          | API              | Description                                      |
-| ---------------- | ---------------- | ------------------------------------------------ |
-| 📈 Stock Quotes  | Alpha Vantage    | Real-time stock prices (AAPL, GOOGL, TSLA, etc.) |
-| 🪙 Crypto Prices | CoinGecko        | Bitcoin, Ethereum, and 10,000+ cryptocurrencies  |
-| 📊 Top Cryptos   | CoinGecko        | Top cryptocurrencies by market cap               |
-| 💱 Forex Rates   | ExchangeRate-API | 150+ currency exchange rates                     |
-| 📰 Market News   | Alpha Vantage    | Latest financial news with sentiment analysis    |
-| 😱 Fear & Greed  | Alternative.me   | Crypto market sentiment index                    |
+| Feature       | API              | Description                                      |
+| ------------- | ---------------- | ------------------------------------------------ |
+| Stock Quotes  | Alpha Vantage    | Real-time stock prices (AAPL, GOOGL, TSLA, etc.) |
+| Crypto Prices | CoinGecko        | Bitcoin, Ethereum, and 10,000+ cryptocurrencies  |
+| Top Cryptos   | CoinGecko        | Top cryptocurrencies by market cap               |
+| Forex Rates   | ExchangeRate-API | 150+ currency exchange rates                     |
+| Market News   | Alpha Vantage    | Latest financial news with sentiment analysis    |
+| Fear & Greed  | Alternative.me   | Crypto market sentiment index                    |
 
 ### UI/UX
 
@@ -75,7 +75,7 @@ A AI financial advisor chatbot built with Next.js 15, Vercel AI SDK, and Google 
 
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 💬 Example Queries
+## Example Queries
 
 Try asking the AI:
 
@@ -87,7 +87,7 @@ Try asking the AI:
 - `"Give me a market overview"`
 - `"Should I invest in ETFs for long-term growth?"`
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── app/
@@ -130,7 +130,7 @@ Edit `app/globals.css` to customize the Mocha Mousse color palette:
 }
 ```
 
-## 📝 Scripts
+## Scripts
 
 | Command         | Description                             |
 | --------------- | --------------------------------------- |
@@ -139,10 +139,10 @@ Edit `app/globals.css` to customize the Mocha Mousse color palette:
 | `npm run start` | Start production server                 |
 | `npm run lint`  | Run ESLint                              |
 
-## ⚠️ Disclaimer
+## Disclaimer
 
 This application is for **informational and educational purposes only**. It does not constitute financial advice. Always consult with a qualified financial advisor before making investment decisions. Past performance does not guarantee future results.
 
-## 📄 License
+## License
 
 MIT License - feel free to use this project for personal or commercial purposes.
