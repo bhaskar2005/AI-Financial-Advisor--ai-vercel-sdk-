@@ -1,8 +1,91 @@
 @import "tailwindcss";
 
+/* Mocha Mousse Theme - Pantone 2025 Color of the Year */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Mocha Mousse palette */
+  --mocha-50: #faf7f5;
+  --mocha-100: #f3ede8;
+  --mocha-200: #e6d9cf;
+  --mocha-300: #d4c0b0;
+  --mocha-400: #bfa08a;
+  --mocha-500: #a47551; /* Core Mocha Mousse */
+  --mocha-600: #8b5e3c;
+  --mocha-700: #6f4a30;
+  --mocha-800: #5a3d28;
+  --mocha-900: #4a3323;
+  --mocha-950: #2d1e14;
+
+  /* Light theme semantic colors */
+  --background: #faf7f5;
+  --background-secondary: #f3ede8;
+  --foreground: #2d1e14;
+  --foreground-muted: #6f4a30;
+  --border: #e6d9cf;
+  --border-hover: #d4c0b0;
+  --accent: #a47551;
+  --accent-hover: #8b5e3c;
+  --user-bubble: #a47551;
+  --user-bubble-text: #ffffff;
+  --ai-bubble: #ffffff;
+  --ai-bubble-text: #2d1e14;
+  --input-bg: #ffffff;
+  --input-border: #e6d9cf;
+  --input-focus: #a47551;
+  --shadow-color: rgba(164, 117, 81, 0.1);
+  --shadow-color-strong: rgba(164, 117, 81, 0.2);
+  --code-bg: #2d1e14;
+  --code-text: #f3ede8;
+  --inline-code-bg: #f3ede8;
+  --inline-code-text: #5a3d28;
+  --status-online-bg: #dcfce7;
+  --status-online-text: #15803d;
+  --status-online-dot: #22c55e;
+  --status-thinking-bg: #fef3c7;
+  --status-thinking-text: #b45309;
+  --status-thinking-dot: #f59e0b;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --mocha-50: #2d1e14;
+  --mocha-100: #3d2a1c;
+  --mocha-200: #4a3323;
+  --mocha-300: #5a3d28;
+  --mocha-400: #6f4a30;
+  --mocha-500: #a47551;
+  --mocha-600: #bfa08a;
+  --mocha-700: #d4c0b0;
+  --mocha-800: #e6d9cf;
+  --mocha-900: #f3ede8;
+  --mocha-950: #faf7f5;
+
+  --background: #1a1210;
+  --background-secondary: #241a15;
+  --foreground: #f3ede8;
+  --foreground-muted: #bfa08a;
+  --border: #3d2a1c;
+  --border-hover: #4a3323;
+  --accent: #a47551;
+  --accent-hover: #bfa08a;
+  --user-bubble: #a47551;
+  --user-bubble-text: #ffffff;
+  --ai-bubble: #2d1e14;
+  --ai-bubble-text: #f3ede8;
+  --input-bg: #241a15;
+  --input-border: #3d2a1c;
+  --input-focus: #a47551;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-color-strong: rgba(0, 0, 0, 0.5);
+  --code-bg: #1a1210;
+  --code-text: #e6d9cf;
+  --inline-code-bg: #3d2a1c;
+  --inline-code-text: #d4c0b0;
+  --status-online-bg: #14532d;
+  --status-online-text: #86efac;
+  --status-online-dot: #22c55e;
+  --status-thinking-bg: #78350f;
+  --status-thinking-text: #fde68a;
+  --status-thinking-dot: #f59e0b;
 }
 
 @theme inline {
@@ -12,15 +95,257 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar for Mocha theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Theme transition */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body,
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Focus ring utility */
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 2px var(--background), 0 0 0 4px var(--accent);
+}
+
+/* Typing animation */
+@keyframes pulse-dot {
+  0%,
+  80%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.typing-dot {
+  animation: pulse-dot 1.4s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Message appear animation */
+@keyframes message-appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-animate {
+  animation: message-appear 0.3s ease-out forwards;
+}
+
+/* Streaming text cursor animation */
+@keyframes blink-cursor {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.streaming-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background-color: var(--mocha-500);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: blink-cursor 1s step-end infinite;
+}
+
+/* Streaming text fade-in effect */
+@keyframes text-fade-in {
+  from {
+    opacity: 0.6;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.streaming-text {
+  animation: text-fade-in 0.15s ease-out;
+}
+
+/* Message bubble expand animation for streaming */
+@keyframes bubble-expand {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.bubble-animate {
+  animation: bubble-expand 0.2s ease-out forwards;
+}
+
+/* Smooth height transition for streaming messages */
+.streaming-message {
+  transition: height 0.1s ease-out;
+}
+
+/* Code block styling */
+.message-content pre {
+  background-color: var(--code-bg);
+  color: var(--code-text);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  overflow-x: auto;
+  margin: 0.75rem 0;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border: 1px solid var(--border);
+}
+
+.message-content code {
+  font-family: var(--font-mono), monospace;
+  background-color: var(--inline-code-bg);
+  color: var(--inline-code-text);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.message-content pre code {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* List styling in messages */
+.message-content ul,
+.message-content ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.message-content li {
+  margin: 0.25rem 0;
+}
+
+/* Paragraph spacing */
+.message-content p {
+  margin: 0.5rem 0;
+}
+
+.message-content p:first-child {
+  margin-top: 0;
+}
+
+.message-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Link styling */
+.message-content a {
+  color: var(--mocha-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.message-content a:hover {
+  color: var(--mocha-700);
+}
+
+/* Blockquote styling */
+.message-content blockquote {
+  border-left: 3px solid var(--mocha-300);
+  padding-left: 1rem;
+  margin: 0.75rem 0;
+  color: var(--foreground-muted);
+  font-style: italic;
+}
+
+/* Heading styling in messages */
+.message-content h1,
+.message-content h2,
+.message-content h3,
+.message-content h4 {
+  font-weight: 600;
+  margin: 1rem 0 0.5rem 0;
+  color: var(--foreground);
+}
+
+.message-content h1:first-child,
+.message-content h2:first-child,
+.message-content h3:first-child,
+.message-content h4:first-child {
+  margin-top: 0;
 }
